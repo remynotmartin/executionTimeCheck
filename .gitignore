@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+# I just don't want this getting pushed to the repo.
+testLog.txt
