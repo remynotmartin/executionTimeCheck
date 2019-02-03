@@ -28,19 +28,19 @@ int main () {
 	auto stop1 = high_resolution_clock::now();
 	auto duration1 = duration_cast<microseconds>(stop1 - start1);
 	cout    << "\\n took  : "<< duration1.count()
-		    << " ms." << '\n';
+		    << " microseconds." << '\n'; // MICROseconds, not milli!
 	logFile << "\\n took:   "<< duration1.count()
-		    << " ms." << '\n';
+		    << " microseconds." << '\n';
 	
 	// Test for printNew() function
 	auto start2 = high_resolution_clock::now();
 	if(!printEnd()) return -1;
 	auto stop2 = high_resolution_clock::now();
-	auto duration2 = duration_cast<microseconds>(stop2 - start2);
+	auto duration2 = std::chrono::duration_cast<microseconds>(stop2 - start2);
 	cout    << "endl took: " << duration2.count()
-		    << " ms." << endl;
+		    << " microseconds." << endl;
 	logFile << "endl took: " << duration2.count()
-		    << " ms." << endl << endl;
+		    << " microseconds." << endl << endl;
     
     cout    << "This means \\n was " << std::setprecision(2) << std::fixed
             <<  static_cast<double>(duration2.count()) / duration1.count()
